@@ -23,7 +23,10 @@ app.use(logger("dev"));
 app.use(require("./routes/html-routes"));
 app.use(require("./routes/api-routes"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts", {
+mongoose.connect(
+    process.env.MONGODB_URI || 
+"mongodb://localhost/workouts", 
+    {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
