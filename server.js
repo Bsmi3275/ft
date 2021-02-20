@@ -19,10 +19,6 @@ app.use(express.json());
 //Dearest Morgan, ...
 app.use(logger("dev"));
 
-//calling the routes
-app.use(require("./routes/html-routes"));
-app.use(require("./routes/api-routes"));
-
 mongoose.connect(
     process.env.MONGODB_URI || 
 "mongodb://localhost/workouts", 
@@ -32,6 +28,10 @@ mongoose.connect(
     useCreateIndex: true,
     useFindAndModify: false,
 });
+
+//calling the routes
+app.use(require("./routes/html-routes"));
+app.use(require("./routes/api-routes"));
 
 //PORT function
 app.listen(PORT, function () {
